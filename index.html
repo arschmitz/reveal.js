@@ -33,6 +33,9 @@
 			.reveal h3{
 				color:#6cb639;
 			}
+			.reveal p{
+				font-size:30px;
+			}
 		</style>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -54,7 +57,7 @@ function googleTranslateElementInit() {
 					<h1>jQuery Mobile:</h1>
 					<h3>Common Pitfalls and Gotchas</h3>
 					<p>
-						<img src ="img/pitfall.jpg" />
+						<img src ="img/pitfall.jpg" style="max-height:300px;"/><br/>
 						<small>Created by <a href="http://uglymongrel.com">Alex Schmitz</a> / <a href="http://twitter.com/alexrschmitz">@alexrschmitz</a></small>
 					</p>
 					<aside class="notes">
@@ -141,7 +144,7 @@ $( document ).ready( function() {
 				<section>
 					<h2>What exactly is a page in jQuery Mobile?</h2>
 					<ul>
-						<li class="fragment">A page is any div with a data-role of page</li>
+						<li class="fragment">A page is any div with a <code class="notranslate">data-role="page"</code></li>
 						<li class="fragment">There can be one or more pages in single document</li>
 						<li class="fragment">Pages can be dynamicly injected, pulled via ajax, or navigated to with a normal http request</li>
 					</ul>
@@ -160,7 +163,7 @@ $( document ).ready( function() {
 						<li class="fragment">By default all navigation in jQuery Mobile is handled via changes to
 							<code class="notranslate">location.hash</code>
 						</li>
-						<li class="fragment">When the history api is avalible in the browser the pushState plugin is used to maintain a clean and transparent url structure</li>
+						<li class="fragment">When the history api is available in the browser the pushState plugin is used to maintain a clean and transparent url structure</li>
 					</ul>
 					<aside class="notes">
 						<li>Now a very brief overview of the AJAX nav model</li>
@@ -371,7 +374,7 @@ $.ajaxPrefilter( function(options, originalOptions, jqXHR) {
 						There are a few known problems with the pushState plugin due to different implementations of the pop state event in browsers. 
 					</h3>
 					<p>The most common situation where this comes up is when you are frequently navigating between AJAX nav and non AJAX pages</p>
-					<p>If you are doing this frequently we recomend you disable the pushState plugin</p>
+					<p>If you are doing this frequently we recommend you disable the pushState plugin</p>
 					<aside class="notes">
 						<li>The nav is acting erraticly</li>
 						<li>There are a few known problems with the pushState plugin due to different implementations of the pop state event in browsers. </li>
@@ -435,7 +438,7 @@ $( document ).on("#aboutPage", "pageinit", function() {
 	});
 });
 					</code></pre>
-					<p class="fragment">Load all scripts and initalize based on pageInit</p>
+					<p class="fragment">Load all scripts and initialize based on pageInit</p>
 										<pre class="fragment"><code class="notranslate">
 $( document ).on("#aboutPage", "pageinit", function() {
 		//Run code specific to #aboutPage
@@ -475,16 +478,16 @@ $( document ).on("#aboutPage", "pageinit", function() {
 					</aside>
 				</section>
 				<section>
-					<h3>Deffinition: Dynamic Content</h3>
+					<h3>Definition: Dynamic Content</h3>
 					<blockquote>
 						Dynamic content is content that is generated at the time of access by a user or that changes as a result of interaction with the user.
 					</blockquote>
 				</section>
 				<section>
-					<h2>By this deffinition almost all content in a jQuery Mobile website is dynamic</h2>
+					<h2>By this definition almost all content in a jQuery Mobile website is dynamic</h2>
 					A few Examples: 
 					<ul>
-						<li>A page loaded via AJAX navigation<li>
+						<li>A page loaded via AJAX navigation</li>
 						<li>Enhanced Form Elements</li>
 						<li>A Filtered list view</li>
 						<li>Popups</li>
@@ -496,7 +499,7 @@ $( document ).on("#aboutPage", "pageinit", function() {
 					<ul>
 						<li>All of jQuery Mobile's enhanced form elements are widgets</li>
 						<li>Most Widgets in jQuery Mobile enhance the markup</li>
-						<li>jQuery Mobile widgets are based on the jQuery UI widget factory<li>
+						<li>jQuery Mobile widgets are based on the jQuery UI widget factory</li>
 						<li>all jQuery mobile widgets inherit from the mobile base widget</li>
 					</ul>
 				</section>
@@ -516,10 +519,10 @@ $( document ).on("#aboutPage", "pageinit", function() {
 					<img src="img/abd_115.gif" />
 				</section>
 				<section data-state="alert">
-					<h2>I change the styleing on my button, select etc, but it has no effect</h2>
+					<h2>I change the styling on my button, select etc, but it has no effect</h2>
 					<p>The element you added is not the element you see</p>
 <pre><code class="notranslate">
-//Button before enhancment
+//Button before enhancement
 &#60;button&#62;Button element&#60;/button&#62;
 //after enhancment
 &#60;div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="null" data-iconpos="null" data-theme="c" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" aria-disabled="false"&#62;
@@ -536,7 +539,7 @@ $( document ).on("#aboutPage", "pageinit", function() {
 					</aside>
 				</section>
 				<section data-state="alert">
-					<h2>I change a css style and it dosent show any change</h2>
+					<h2>I change a css style and it dosen't show any change</h2>
 					<p>Check your css specificity</p>
 					<aside class="notes">
 						<li>I change a css style and it dosent show any change</li>
@@ -552,7 +555,7 @@ $( document ).on("#aboutPage", "pageinit", function() {
 $('select').selectmenu('refresh');
 					</code></pre>
 					<aside class="notes">
-						<li>I update the value of a select programaticly but the menu dosent change</li>
+						<li>I update the value of a select programmatically but the menu dosent change</li>
 						<li>When updating a select menu you must call refresh</li>
 						This is another one to do with enhanced content. because the element you see on the screen is not the actual select element if you change the select menus value programaticly you must call refresh to force the visual element to refresh with the current select value.
 					</aside>
@@ -574,7 +577,7 @@ $( "button" ).checkboxradio( "refresh" );
 				</section>
 				<section data-state="alert">
 					<h2>I add more options to a custom select but when i open the menu the options are not avalible</h2>
-					<p>When adding options to a custom selecet programaticly you must call refresh with true</p>
+					<p>When adding options to a custom select programmatically you must call refresh with true</p>
 					<pre><code class="notranslate">
 //refresh and force rebuild
 $('select').selectmenu('refresh', true);
@@ -587,7 +590,7 @@ $('select').selectmenu('refresh', true);
 				</section>
 				<section data-state="alert">
 					<h2>My date / time / number / color inputs look different in different browsers</h2>
-					<p>Other then the basic border and color styles applied to text inputs jQuery Mobile does not enhance these. Additional control rendering is according to the browser.</p>
+					<p>Other than the basic border and color styles applied to text inputs jQuery Mobile does not enhance these. Additional control rendering is according to the browser.</p>
 					<aside class="notes">
 						<li>My date / time / number / color inputs look different in different browsers</li>
 						<li>Other then the basic border and color styles applied to text inputs jQuery Mobile does not enhance these. Additional control rendering is according to the browser.</li>
@@ -603,23 +606,23 @@ $('select').selectmenu('refresh', true);
 				</section>
 				<section data-state="alert">
 					<h2>Sometimes my custom select shows as a popup other times a dialog</h2>
-					<p>Wether a custom select shows as a dialog or popup is based on the number of options and  the amount of avalible space on the screen</p>
+					<p>Whether a custom select shows as a dialog or popup is based on the number of options and  the amount of availble space on the screen</p>
 					<aside class="notes">
 						To give maximum usability in custom select menus and deal with the awkwardness of scrolling with a popup open if the select menu when opened as a popup will not fit on the screen we automaticly create a new page and populate it with a list of the select options the page will open as a dialog.
 					</aside>
 				</section>
 				<section data-state="alert">
 					<h2>Calling disable on my button does not work</h2>
-					<p>Buttons that are created from a link or button element cannot be disabled</p>
+					<p>Buttons that are created from a link cannot be disabled</p>
 					<p>You can however still add the class <code class="notranslate">.ui-disabled</code> via javaScript</p>
 					<aside class="notes">
-						The reason for this is that current w3c specification does not provide for a disabled attribute on buttons or links only for inputs with a type = button.
+						The reason for this is that current w3c specification does not provide for a disabled attribute on links only for inputs with a type = button.
 					</aside>
 				</section>
 				<section data-state="alert">
 					<h2>Controls in my fixed header / footer are not responding behave erraticly</h2>
 					<p>There are several well known bugs in mobile browsers regarding form elements inside <code class="notranslate">position: fixed;</code> elements</p>
-					<p>espically in Android 2.3</p>
+					<p>Especially in Android 2.3</p>
 					<aside class="notes">
 						This brushes on a much larger topic of device bugs. This could be an entire topic all by it self. but just know fixed position with form elements can be very problematic.
 					</aside>
@@ -629,8 +632,8 @@ $('select').selectmenu('refresh', true);
 					<img src="img/abd_180.gif"/>
 				</section>
 				<section data-state="alert">
-					<h2>Im injecting html into a page but its not being enhanced</h2>
-					<p>After you inject new html content into a page you must trigger create on the parent container</p>
+					<h2>I'm injecting html into a page but its not being enhanced</h2>
+					<p>You must make sure the plugins are called to enhance the new elements .... simple solution is to trigger("create") on the container so you don't have to call each plugin manually</p>
 					<pre><code class="notranslate">
 //HTML 
 &#60;form id="formid"&#62;
@@ -646,7 +649,7 @@ $("#formid").trigger("create");
 				</section>
 				<section data-state="alert">
 					<h2>Im injecting html into a page and triggering create but its not being enhanced</h2>
-					<p>Make sure you are triggering create on the PARENT CONTAINER no the element to be enhanced</p>
+					<p>Make sure you are triggering create on the PARENT CONTAINER not the element to be enhanced</p>
 					<pre><code class="notranslate">
 //HTML 
 &#60;form id="formid"&#62;
@@ -686,8 +689,8 @@ $("#submitButton").trigger("create");
 					</aside>
 				</section>
 				<section>
-					<h2>I want to render a piece of content with out jQuery Mobile enhancing it but it happens automaticly!</h2>
-					<p>To prevent enhancing any form or button element from being enhanced add <code class="notranslate">data-role="none"</code></p>
+					<h2>I want to render a piece of content without jQuery Mobile enhancing it but it happens automaticaly!</h2>
+					<p>To prevent enhancing any form element from being enhanced add <code class="notranslate">data-role="none"</code></p>
 					<aside class="notes">
 						To make writing a jquery mobile site or app as simple and symantic as possible all content is enhanced automaticly with no need to write any javascript. However we do of course provide different methods to overirde this the simplest if its only for an individual elements is to just add data-role="none"
 					</aside>
